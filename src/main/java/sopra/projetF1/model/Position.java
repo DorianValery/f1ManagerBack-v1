@@ -18,4 +18,53 @@ public class Position {
 	@JoinColumn(name="course_id")
 	private Course course;
 	private byte position;
+	
+	public Position(Long id, Pilote pilote, Course course, byte position) {
+		super();
+		this.id = id;
+		this.pilote = pilote;
+		this.course = course;
+		this.position = position;
+	}
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public Pilote getPilote() {
+		return pilote;
+	}
+
+	public void setPilote(Pilote pilote) {
+		this.pilote = pilote;
+	}
+
+	public Course getCourse() {
+		return course;
+	}
+
+	public void setCourse(Course course) {
+		this.course = course;
+	}
+
+	public byte getPosition() {
+		return position;
+	}
+
+	public void setPosition(byte position) {
+		this.position = position;
+	}
+
+	@Override
+	public String toString() {
+		return "Position [id=" + id + ", pilote=" + pilote + ", course=" + course + ", position=" + position + "]";
+	}
+	
+	
+	
 }
+
