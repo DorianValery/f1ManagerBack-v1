@@ -2,6 +2,7 @@ package sopra.projetF1.model;
 
 import java.util.List;
 
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -9,6 +10,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
+@Entity
 public class Voiture {
 
 	@Id
@@ -39,6 +41,20 @@ public class Voiture {
 		this.prix = prix;
 		this.ecurie = ecurie;
 		this.inventaire = inventaire;
+	}
+
+	public Voiture() {
+		// TODO Auto-generated constructor stub
+	}
+
+	
+	public Voiture(String marque, int maniabilite, int vitesse, int poids, boolean etat, int prix) {
+		this.marque = marque;
+		this.maniabilite = maniabilite;
+		this.vitesse = vitesse;
+		this.poids = poids;
+		this.etat = etat;
+		this.prix = prix;
 	}
 
 	public Long getId() {

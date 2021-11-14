@@ -3,6 +3,7 @@ package sopra.projetF1.model;
 import java.time.Duration;
 import java.util.List;
 
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -12,6 +13,7 @@ import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.UniqueConstraint;
 
+@Entity
 public class Course {
 
 	@Id
@@ -40,6 +42,10 @@ public class Course {
 		this.classement = classement;
 		this.popularite = popularite;
 		this.ecuries = ecuries;
+	}
+
+	public Course() {
+		// TODO Auto-generated constructor stub
 	}
 
 	public Long getId() {

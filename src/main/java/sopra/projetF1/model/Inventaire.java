@@ -2,12 +2,14 @@ package sopra.projetF1.model;
 
 import java.util.List;
 
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
+@Entity
 public class Inventaire {
 
 	@Id
@@ -33,6 +35,16 @@ public class Inventaire {
 		this.voitures = voitures;
 		this.pilotes = pilotes;
 	}
+	
+
+	public Inventaire(int argentDisponible) {
+		this.argentDisponible = argentDisponible;
+	}
+
+
+	public Inventaire() {
+	}
+
 
 	public Long getId() {
 		return id;

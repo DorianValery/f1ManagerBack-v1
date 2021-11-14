@@ -1,11 +1,14 @@
 package sopra.projetF1.model;
 
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 
+@Entity
 public class Infrastructure {
 
 	@Id
@@ -18,11 +21,11 @@ public class Infrastructure {
 	private double experience;
 	private boolean etat;
 	private double prix;
-	@ManyToOne
-	@JoinColumn(name="ecurie_id")
+	@OneToOne
+	@JoinColumn(name="ecurie")
 	private Ecurie ecurie;
 	@ManyToOne
-	@JoinColumn(name="inventaire_id")
+	@JoinColumn(name="inventaire")
 	private Inventaire inventaire;
 	
 	public Infrastructure(Long id, String nom, String type, int nbingenieurs, int pitStop, double experience,
@@ -38,6 +41,10 @@ public class Infrastructure {
 		this.prix = prix;
 		this.ecurie = ecurie;
 		this.inventaire = inventaire;
+	}
+
+	public Infrastructure() {
+		// TODO Auto-generated constructor stub
 	}
 
 	public Long getId() {

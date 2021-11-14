@@ -1,6 +1,7 @@
 package sopra.projetF1.model;
 
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
@@ -9,6 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 
+@Entity
 public class Joueur {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -26,6 +28,8 @@ public class Joueur {
 	@OneToOne
 	@JoinColumn(name="ecurie_id")
 	private Ecurie ecurie;
+	@OneToOne (mappedBy = "joueur")
+	private Compte compte;
 	
 	public Joueur() {}
 	

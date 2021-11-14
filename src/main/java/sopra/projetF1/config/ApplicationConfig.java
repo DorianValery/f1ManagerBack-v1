@@ -27,7 +27,7 @@ public class ApplicationConfig {
 	@Autowired
 	private Environment env;
 	
-	// On crée la dataSource
+	// On crï¿½e la dataSource
 	@Bean
 	public BasicDataSource dataSource() {
 		BasicDataSource dataSource = new BasicDataSource();
@@ -40,20 +40,20 @@ public class ApplicationConfig {
 		return dataSource;
 	}
 	
-	// On crée un entityManagerFactory local à partir de la dataSource
+	// On crï¿½e un entityManagerFactory local ï¿½ partir de la dataSource
 		@Bean
 		public LocalContainerEntityManagerFactoryBean entityManagerFactory(BasicDataSource dataSource) {
 			LocalContainerEntityManagerFactoryBean emf = new LocalContainerEntityManagerFactoryBean();
 			emf.setDataSource(dataSource);
 			emf.setPackagesToScan("sopra.projetF1.model");
 
-			// On précise le provider ...
+			// On prï¿½cise le provider ...
 			JpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
 			emf.setJpaVendorAdapter(vendorAdapter);
 
-			// On précise les propriétés
+			// On prï¿½cise les propriï¿½tï¿½s
 			Properties properties = new Properties();
-			properties.setProperty("hibernate.hbm2ddl.auto", "update");
+			properties.setProperty("hibernate.hbm2ddl.auto", "create");
 			properties.setProperty("hibernate.dialect", env.getProperty("db.dialect"));
 			properties.setProperty("hibernate.show_sql", "true");
 			emf.setJpaProperties(properties);
@@ -61,7 +61,7 @@ public class ApplicationConfig {
 			return emf;
 		}
 	
-		// On crée le transactionManagerpour JPA avec entityManagerFactory
+		// On crï¿½e le transactionManagerpour JPA avec entityManagerFactory
 		@Bean
 		public JpaTransactionManager transactionManager(EntityManagerFactory entityManagerFactory) {
 			JpaTransactionManager transactionManager = new JpaTransactionManager();
