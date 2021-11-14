@@ -27,6 +27,8 @@ public class Joueur {
 	@JoinColumn(name="ecurie_id")
 	private Ecurie ecurie;
 	
+	public Joueur() {}
+	
 	public Joueur(long id, String pseudo, int age, String mail, String telephone, Civilite civ, Inventaire inventaire,
 			Ecurie ecurie) {
 		super();
@@ -40,6 +42,16 @@ public class Joueur {
 		this.ecurie = ecurie;
 	}
 
+	public Joueur(String pseudo, int age, String mail, String telephone, Civilite civ, Inventaire inventaire,
+			Ecurie ecurie) {
+		super();
+		this.pseudo = pseudo;
+		this.age = age;
+		this.mail = mail;
+		this.telephone = telephone;
+		this.civ = civ;
+	}
+	
 	public long getId() {
 		return id;
 	}
