@@ -5,5 +5,9 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import sopra.projetF1.model.Voiture;
 
 public interface IVoitueRepository extends JpaRepository<Voiture, Long>{
-
+//findAllVoiture
+//findVoitureById
+//findVoitureByMarque
+//findVoitureByJoueur
+//findVoitureByPrix
 }
