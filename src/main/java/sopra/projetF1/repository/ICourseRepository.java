@@ -21,7 +21,7 @@ public interface ICourseRepository extends JpaRepository<Course, Long>{
 
 //findCourseByNom
 //@Query("select c from Course c where c.nom= :nom")
-//Optional<Course> findCourseByNom(@Param("nom") String nom);
+//Optional<Course> findCourseByNom(@Param("nom") String );
 
-//findAllByJoueur
+//findCourseByJoueur
 }
