@@ -18,6 +18,8 @@ public class Compte {
 	@JoinColumn(name="joueur_id")
 	private Joueur joueur;
 	
+	public Compte() {}
+	
 	public Compte(Long id, String login, String password, Type type, Joueur joueur) {
 		super();
 		this.id = id;
@@ -27,6 +29,13 @@ public class Compte {
 		this.joueur = joueur;
 	}
 
+	public Compte(String login, String password, Type type) {
+		super();
+		this.login = login;
+		this.password = password;
+		this.type = type;
+	}
+	
 	public Long getId() {
 		return id;
 	}
