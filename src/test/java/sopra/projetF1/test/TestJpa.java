@@ -40,6 +40,8 @@ public class TestJpa {
 		compteAdmin.setLogin("Admin");
 		compteAdmin.setPassword("Admin");
 		compteAdmin.setType(Type.ADMIN);
+	
+		compteAdmin = compteRepo.save(compteAdmin);
 		
 		//Comptes des joueurs
 		Compte compteJoueur1= new Compte();
@@ -47,20 +49,59 @@ public class TestJpa {
 		compteJoueur1.setPassword("Joueur1");
 		compteJoueur1.setType(Type.JOUEUR);
 		
+		compteJoueur1 = compteRepo.save(compteJoueur1);
+		
 		Compte compteJoueur2= new Compte();
 		compteJoueur2.setLogin("Joueur2");
 		compteJoueur2.setPassword("Joueur2");
 		compteJoueur2.setType(Type.JOUEUR);
+		
+		compteJoueur2 = compteRepo.save(compteJoueur2);
 		
 		Compte compteJoueur3= new Compte();
 		compteJoueur3.setLogin("Joueur3");
 		compteJoueur3.setPassword("Joueur3");
 		compteJoueur3.setType(Type.JOUEUR);
 		
+		compteJoueur3 = compteRepo.save(compteJoueur3);
+		
 		Compte compteJoueur4= new Compte();
 		compteJoueur4.setLogin("Joueur4");
 		compteJoueur4.setPassword("Joueur4");
 		compteJoueur4.setType(Type.JOUEUR);
+		
+		compteAdmin = compteRepo.save(compteAdmin);
+		
+
+		//Ecuries
+		
+		Ecurie ecurieJoueur1 = new Ecurie();
+		ecurieJoueur1.setNom("Ecurie1");
+		ecurieJoueur1.setArgent(50000);
+		ecurieJoueur1.setExperience(500);
+		
+		ecurieJoueur1 = ecurieRepo.save(ecurieJoueur1);
+		
+		Ecurie ecurieJoueur2 = new Ecurie();
+		ecurieJoueur2.setNom("Ecurie2");
+		ecurieJoueur2.setArgent(40000);
+		ecurieJoueur2.setExperience(400);
+		
+		ecurieJoueur2 = ecurieRepo.save(ecurieJoueur2);
+		
+		Ecurie ecurieJoueur3 = new Ecurie();
+		ecurieJoueur3.setNom("Ecurie3");
+		ecurieJoueur3.setArgent(30000);
+		ecurieJoueur3.setExperience(300);
+		
+		ecurieJoueur3 = ecurieRepo.save(ecurieJoueur3);
+		
+		Ecurie ecurieJoueur4 = new Ecurie();
+		ecurieJoueur4.setNom("Ecurie4");
+		ecurieJoueur4.setArgent(20000);
+		ecurieJoueur4.setExperience(200);
+		
+		ecurieJoueur4 = ecurieRepo.save(ecurieJoueur4);
 		
 		//Joueurs
 		Joueur joueur1=new Joueur();
@@ -69,6 +110,9 @@ public class TestJpa {
 		joueur1.setMail("joueur1@gmail.com");
 		joueur1.setTelephone("0606060606");
 		joueur1.setCiv(Civilite.M);
+		joueur1.setEcurie(ecurieJoueur1);
+		
+		joueur1 = joueurRepo.save(joueur1);
 
 		Joueur joueur2=new Joueur();
 		joueur2.setPseudo("Joueur2");
@@ -76,6 +120,9 @@ public class TestJpa {
 		joueur2.setMail("joueur2@gmail.com");
 		joueur2.setTelephone("0606060606");
 		joueur2.setCiv(Civilite.MME);
+		joueur1.setEcurie(ecurieJoueur2);
+		
+		joueur2 = joueurRepo.save(joueur2);
 		
 		Joueur joueur3=new Joueur();
 		joueur3.setPseudo("Joueur3");
@@ -83,6 +130,9 @@ public class TestJpa {
 		joueur3.setMail("joueur3@gmail.com");
 		joueur3.setTelephone("0606060606");
 		joueur3.setCiv(Civilite.M);
+		joueur1.setEcurie(ecurieJoueur3);
+		
+		joueur3 = joueurRepo.save(joueur3);
 
 		Joueur joueur4=new Joueur();
 		joueur4.setPseudo("Joueur4");
@@ -90,7 +140,9 @@ public class TestJpa {
 		joueur4.setMail("joueur4@gmail.com");
 		joueur4.setTelephone("0606060606");
 		joueur4.setCiv(Civilite.MME);
+		joueur1.setEcurie(ecurieJoueur4);
 		
+		joueur4 = joueurRepo.save(joueur4);
 		
 		
 		spring.close();
