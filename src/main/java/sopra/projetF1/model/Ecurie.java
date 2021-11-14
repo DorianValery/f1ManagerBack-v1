@@ -28,6 +28,8 @@ public class Ecurie {
 	@ManyToMany(mappedBy = "ecuries")
 	private List<Course> courses;
 	
+	public Ecurie() {}
+	
 	public Ecurie(Long id, String nom, double argent, double experience, Infrastructure infrastructure,
 			List<Voiture> voitures, List<Pilote> pilotes, List<Course> courses) {
 		super();
@@ -41,6 +43,12 @@ public class Ecurie {
 		this.courses = courses;
 	}
 
+	public Ecurie(String nom, double argent, double experience) {
+		this.nom = nom;
+		this.argent = argent;
+		this.experience = experience;
+	}
+	
 	public Long getId() {
 		return id;
 	}
