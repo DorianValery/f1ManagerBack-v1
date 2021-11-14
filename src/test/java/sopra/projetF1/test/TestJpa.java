@@ -8,6 +8,7 @@ import sopra.projetF1.model.Compte;
 import sopra.projetF1.model.Ecurie;
 import sopra.projetF1.model.Inventaire;
 import sopra.projetF1.model.Joueur;
+import sopra.projetF1.model.Pilote;
 import sopra.projetF1.model.Type;
 import sopra.projetF1.repository.ICompteRepository;
 import sopra.projetF1.repository.ICourseRepository;
@@ -72,7 +73,58 @@ public class TestJpa {
 		
 		compteAdmin = compteRepo.save(compteAdmin);
 		
-
+		//Pilotes 1 et 2 etat non possédés
+		
+		Pilote pilote1false =new Pilote();
+		pilote1false.setNom("Pilote1");
+		pilote1false.setPrenom("Pilote1");
+		pilote1false.setAge(25);
+		pilote1false.setNationalite("Française");
+		pilote1false.setCiv(Civilite.M);
+		pilote1false.setExperience(100);
+		pilote1false.setEtat(false);
+		pilote1false.setPrix(1);
+		
+		pilote1false = piloteRepo.save(pilote1false);
+		
+		Pilote pilote2false =new Pilote();
+		pilote2false.setNom("Pilote2");
+		pilote2false.setPrenom("Pilote2");
+		pilote2false.setAge(25);
+		pilote2false.setNationalite("Française");
+		pilote2false.setCiv(Civilite.MME);
+		pilote2false.setExperience(200);
+		pilote2false.setEtat(false);
+		pilote2false.setPrix(2);
+		
+		pilote2false = piloteRepo.save(pilote2false);
+		
+		//Pilotes 1 et 2 etat possédés
+		
+		Pilote pilote1true =new Pilote();
+		pilote1true.setNom("Pilote1");
+		pilote1true.setPrenom("Pilote1");
+		pilote1true.setAge(25);
+		pilote1true.setNationalite("Française");
+		pilote1true.setCiv(Civilite.M);
+		pilote1true.setExperience(100);
+		pilote1true.setEtat(true);
+		pilote1true.setPrix(1);
+		
+		pilote1true = piloteRepo.save(pilote1true);
+		
+		Pilote pilote2true =new Pilote();
+		pilote2true.setNom("Pilote2");
+		pilote2true.setPrenom("Pilote2");
+		pilote2true.setAge(25);
+		pilote2true.setNationalite("Française");
+		pilote2true.setCiv(Civilite.MME);
+		pilote2true.setExperience(200);
+		pilote2true.setEtat(false);
+		pilote2true.setPrix(2);
+		
+		pilote2true = piloteRepo.save(pilote2true);
+		
 		//Ecuries
 		
 		Ecurie ecurieJoueur1 = new Ecurie();
