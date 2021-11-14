@@ -36,6 +36,8 @@ public class Pilote {
 	 @JoinColumn(name="inventaire_id")
 	 private Inventaire inventaire;
 	 
+	 public Pilote() {}
+	
 	public Pilote(Long id, String nom, String prenom, int age, String nationalite, Civilite civ, double experience,
 			boolean etat, double prix, Ecurie ecurie, List<Position> positions, Inventaire inventaire) {
 		super();
@@ -51,6 +53,18 @@ public class Pilote {
 		this.ecurie = ecurie;
 		this.positions = positions;
 		this.inventaire = inventaire;
+	}
+	
+	public Pilote(String nom, String prenom, int age, String nationalite, Civilite civ, double experience,
+			boolean etat, double prix) {
+		this.nom = nom;
+		this.prenom = prenom;
+		this.age = age;
+		this.nationalite = nationalite;
+		this.civ = civ;
+		this.experience = experience;
+		this.etat = etat;
+		this.prix = prix;
 	}
 
 	public Long getId() {
