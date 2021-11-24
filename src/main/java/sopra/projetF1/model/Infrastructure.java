@@ -57,7 +57,7 @@ public class Infrastructure {
 	}
 
 	public Infrastructure() {
-		// TODO Auto-generated constructor stub
+		
 	}
 
 	public Long getId() {
