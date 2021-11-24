@@ -20,15 +20,14 @@ public class Ecurie {
 	private String nom;
 	private double argent;
 	private double experience;
-	@OneToOne
+	@OneToMany
 	@JoinColumn(name="infrastructure_id")
-	@OneToMany(mappedBy = "ecurie")
 	private List<Infrastructure> infrastructures;
 	@OneToMany(mappedBy = "ecurie")
 	private List<Voiture> voitures;
 	@OneToMany(mappedBy = "ecurie")
 	private List<Pilote> pilotes;
-	@ManyToMany(mappedBy = "ecurie")
+	@ManyToMany(mappedBy = "ecuries")
 	private List<Course> courses;
 	
 	public Ecurie() {}
