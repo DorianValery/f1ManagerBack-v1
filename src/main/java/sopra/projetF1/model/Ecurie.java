@@ -22,24 +22,25 @@ public class Ecurie {
 	private double experience;
 	@OneToOne
 	@JoinColumn(name="infrastructure_id")
-	private Infrastructure infrastructure;
+	@OneToMany(mappedBy = "ecurie")
+	private List<Infrastructure> infrastructures;
 	@OneToMany(mappedBy = "ecurie")
 	private List<Voiture> voitures;
 	@OneToMany(mappedBy = "ecurie")
 	private List<Pilote> pilotes;
-	@ManyToMany(mappedBy = "ecuries")
+	@ManyToMany(mappedBy = "ecurie")
 	private List<Course> courses;
 	
 	public Ecurie() {}
 	
-	public Ecurie(Long id, String nom, double argent, double experience, Infrastructure infrastructure,
+	public Ecurie(Long id, String nom, double argent, double experience, List<Infrastructure> infrastructures,
 			List<Voiture> voitures, List<Pilote> pilotes, List<Course> courses) {
 		super();
 		this.id = id;
 		this.nom = nom;
 		this.argent = argent;
 		this.experience = experience;
-		this.infrastructure = infrastructure;
+		this.infrastructures = infrastructures;
 		this.voitures = voitures;
 		this.pilotes = pilotes;
 		this.courses = courses;
@@ -83,12 +84,12 @@ public class Ecurie {
 		this.experience = experience;
 	}
 
-	public Infrastructure getInfrastructure() {
-		return infrastructure;
+	public List<Infrastructure> getInfrastructure() {
+		return infrastructures;
 	}
 
-	public void setInfrastructure(Infrastructure infrastructure) {
-		this.infrastructure = infrastructure;
+	public void setInfrastructure(List<Infrastructure> infrastructures) {
+		this.infrastructures = infrastructures;
 	}
 
 	public List<Voiture> getVoitures() {
@@ -118,7 +119,7 @@ public class Ecurie {
 	@Override
 	public String toString() {
 		return "Ecurie [id=" + id + ", nom=" + nom + ", argent=" + argent + ", experience=" + experience
-				+ ", infrastructure=" + infrastructure + ", voitures=" + voitures + ", pilotes=" + pilotes
+				+ ", infrastructure=" + infrastructures + ", voitures=" + voitures + ", pilotes=" + pilotes
 				+ ", courses=" + courses + "]";
 	}
 	

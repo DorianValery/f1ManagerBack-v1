@@ -1,6 +1,5 @@
 package sopra.projetF1.test;
 
-import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,6 +16,7 @@ import sopra.projetF1.model.Joueur;
 import sopra.projetF1.model.Pilote;
 import sopra.projetF1.model.Type;
 import sopra.projetF1.model.Voiture;
+import sopra.projetF1.model.typeInfra;
 import sopra.projetF1.repository.ICompteRepository;
 import sopra.projetF1.repository.ICourseRepository;
 import sopra.projetF1.repository.IEcurieRepository;
@@ -84,28 +84,52 @@ public class TestJpa {
 		//Pilotes 1 et 2 etat non possédés
 		
 		Pilote pilote1false =new Pilote();
-		pilote1false.setNom("Pilote1");
-		pilote1false.setPrenom("Pilote1");
-		pilote1false.setAge(25);
-		pilote1false.setNationalite("Française");
+		pilote1false.setNom("BOTTAS");
+		pilote1false.setPrenom("Slow");
+		pilote1false.setAge(21);
+		pilote1false.setNationalite("Finlandaise");
 		pilote1false.setCiv(Civilite.M);
-		pilote1false.setExperience(100);
+		pilote1false.setExperience(60);
 		pilote1false.setEtat(false);
-		pilote1false.setPrix(1000);
+		pilote1false.setPrix(60000);
 		
 		pilote1false = piloteRepo.save(pilote1false);
 		
 		Pilote pilote2false =new Pilote();
-		pilote2false.setNom("Pilote2");
-		pilote2false.setPrenom("Pilote2");
-		pilote2false.setAge(25);
+		pilote2false.setNom("LITTLE");
+		pilote2false.setPrenom("Jane");
+		pilote2false.setAge(20);
 		pilote2false.setNationalite("Anglaise");
 		pilote2false.setCiv(Civilite.MME);
-		pilote2false.setExperience(200);
+		pilote2false.setExperience(63);
 		pilote2false.setEtat(false);
-		pilote2false.setPrix(2000);
+		pilote2false.setPrix(65000);
 		
 		pilote2false = piloteRepo.save(pilote2false);
+		
+		Pilote pilote3false =new Pilote();
+		pilote3false.setNom("LINCOLN");
+		pilote3false.setPrenom("Jenny");
+		pilote3false.setAge(20);
+		pilote3false.setNationalite("Américaine");
+		pilote3false.setCiv(Civilite.MME);
+		pilote3false.setExperience(60);
+		pilote3false.setEtat(false);
+		pilote3false.setPrix(65000);
+		
+		pilote3false = piloteRepo.save(pilote3false);
+		
+		Pilote pilote4false =new Pilote();
+		pilote4false.setNom("LEO");
+		pilote4false.setPrenom("Messi");
+		pilote4false.setAge(22);
+		pilote4false.setNationalite("Mexicaine");
+		pilote4false.setCiv(Civilite.M);
+		pilote4false.setExperience(70);
+		pilote4false.setEtat(false);
+		pilote4false.setPrix(80000);
+		
+		pilote4false = piloteRepo.save(pilote4false);
 		
 		//Pilotes 1 et 2 etat possédés
 		
@@ -128,120 +152,366 @@ public class TestJpa {
 		pilote4true.setNationalite("Suedoise");
 		pilote4true.setCiv(Civilite.MME);
 		pilote4true.setExperience(200);
-		pilote4true.setEtat(false);
+		pilote4true.setEtat(true);
 		pilote4true.setPrix(4000);
 		
 		pilote4true = piloteRepo.save(pilote4true);
 		
+
+		Pilote piloteX =new Pilote();
+		piloteX.setNom("X");
+		piloteX.setPrenom("X");
+		piloteX.setAge(0);
+		piloteX.setNationalite("X");
+		piloteX.setCiv(Civilite.M);
+		piloteX.setExperience(500);
+		piloteX.setEtat(false);
+		piloteX.setPrix(2000000);
+		
+		piloteX = piloteRepo.save(piloteX);
+		
 		List <Pilote> listPilote = new ArrayList();
 		listPilote.add(pilote1false);
-		listPilote.add(pilote3true);
 		listPilote.add(pilote2false);
+		listPilote.add(pilote3false);
+		listPilote.add(pilote4false);
+		listPilote.add(pilote3true);
 		listPilote.add(pilote4true);
+		listPilote.add(piloteX);
 		
-		//Voitures
+		//PILOTES DES ECURIES
+		
+		Pilote pilote1 =new Pilote();
+		pilote1.setNom("SUSHI");
+		pilote1.setPrenom("Manga");
+		pilote1.setAge(21);
+		pilote1.setNationalite("Japonaise");
+		pilote1.setCiv(Civilite.M);
+		pilote1.setExperience(60);
+		pilote1.setEtat(false);
+		pilote1.setPrix(100000);
+		
+		Pilote pilote2 =new Pilote();
+		pilote2.setNom("KONI");
+		pilote2.setPrenom("Chiwa");
+		pilote2.setAge(21);
+		pilote2.setNationalite("Chinoise");
+		pilote2.setCiv(Civilite.M);
+		pilote2.setExperience(65);
+		pilote2.setEtat(false);
+		pilote2.setPrix(100000);
+		
+		Pilote pilote3 =new Pilote();
+		pilote3.setNom("O'NEILL");
+		pilote3.setPrenom("Bryan");
+		pilote3.setAge(43);
+		pilote3.setNationalite("Néerlandaise");
+		pilote3.setCiv(Civilite.M);
+		pilote3.setExperience(95);
+		pilote3.setEtat(false);
+		pilote3.setPrix(150000);
+		
+		Pilote pilote4 =new Pilote();
+		pilote4.setNom("DONUT");
+		pilote4.setPrenom("Lindsey");
+		pilote4.setAge(40);
+		pilote4.setNationalite("Américiaine");
+		pilote4.setCiv(Civilite.MME);
+		pilote4.setExperience(90);
+		pilote4.setEtat(false);
+		pilote4.setPrix(150000);
+		
+		Pilote pilote5 =new Pilote();
+		pilote5.setNom("DUPONT");
+		pilote5.setPrenom("François");
+		pilote5.setAge(35);
+		pilote5.setNationalite("Française");
+		pilote5.setCiv(Civilite.M);
+		pilote5.setExperience(150);
+		pilote5.setEtat(false);
+		pilote5.setPrix(200000);
+		
+		Pilote pilote6 =new Pilote();
+		pilote6.setNom("ELIZABETH");
+		pilote6.setPrenom("Marie");
+		pilote6.setAge(25);
+		pilote6.setNationalite("Anglaise");
+		pilote6.setCiv(Civilite.MME);
+		pilote6.setExperience(95);
+		pilote6.setEtat(false);
+		pilote6.setPrix(170000);
+		
+		Pilote pilote7 =new Pilote();
+		pilote7.setNom("CHAN");
+		pilote7.setPrenom("Jackie");
+		pilote7.setAge(22);
+		pilote7.setNationalite("Coréenne");
+		pilote7.setCiv(Civilite.M);
+		pilote7.setExperience(80);
+		pilote7.setEtat(false);
+		pilote7.setPrix(120000);
+		
+		Pilote pilote8 =new Pilote();
+		pilote8.setNom("LEE");
+		pilote8.setPrenom("Bruce");
+		pilote8.setAge(21);
+		pilote8.setNationalite("Coréenne");
+		pilote8.setCiv(Civilite.M);
+		pilote8.setExperience(85);
+		pilote8.setEtat(false);
+		pilote8.setPrix(140000);
+		
+		Pilote pilote9 =new Pilote();
+		pilote9.setNom("PEREZ");
+		pilote9.setPrenom("Antonio");
+		pilote9.setAge(21);
+		pilote9.setNationalite("Mexicaine");
+		pilote9.setCiv(Civilite.M);
+		pilote9.setExperience(60);
+		pilote9.setEtat(false);
+		pilote9.setPrix(95000);
+		
+		Pilote pilote10 =new Pilote();
+		pilote10.setNom("PEDRO");
+		pilote10.setPrenom("Juliano");
+		pilote10.setAge(21);
+		pilote10.setNationalite("Mexicaine");
+		pilote10.setCiv(Civilite.M);
+		pilote10.setExperience(65);
+		pilote10.setEtat(false);
+		pilote10.setPrix(100000);
+		
+		Pilote pilote11 =new Pilote();
+		pilote11.setNom("GIANLUIGI");
+		pilote11.setPrenom("Mario");
+		pilote11.setAge(35);
+		pilote11.setNationalite("Italienne");
+		pilote11.setCiv(Civilite.M);
+		pilote11.setExperience(200);
+		pilote11.setEtat(false);
+		pilote11.setPrix(300000);
+		
+		Pilote pilote12 =new Pilote();
+		pilote12.setNom("MERKEL");
+		pilote12.setPrenom("Angela");
+		pilote12.setAge(39);
+		pilote12.setNationalite("Allemande");
+		pilote12.setCiv(Civilite.MME);
+		pilote12.setExperience(205);
+		pilote12.setEtat(false);
+		pilote12.setPrix(310000);
+		
+		Pilote pilote13 =new Pilote();
+		pilote13.setNom("BERN");
+		pilote13.setPrenom("Jules");
+		pilote13.setAge(34);
+		pilote13.setNationalite("Suisse");
+		pilote13.setCiv(Civilite.M);
+		pilote13.setExperience(220);
+		pilote13.setEtat(false);
+		pilote13.setPrix(400000);
+		
+		Pilote pilote14 =new Pilote();
+		pilote14.setNom("SCHUMACHER");
+		pilote14.setPrenom("Gunter");
+		pilote14.setAge(36);
+		pilote14.setNationalite("Allemande");
+		pilote14.setCiv(Civilite.M);
+		pilote14.setExperience(240);
+		pilote14.setEtat(false);
+		pilote14.setPrix(430000);
+		
+		Pilote pilote15 =new Pilote();
+		pilote15.setNom("FERRARI");
+		pilote15.setPrenom("Tony");
+		pilote15.setAge(26);
+		pilote15.setNationalite("Italienne");
+		pilote15.setCiv(Civilite.M);
+		pilote15.setExperience(120);
+		pilote15.setEtat(false);
+		pilote15.setPrix(140000);
+		
+		Pilote pilote16 =new Pilote();
+		pilote16.setNom("DINO");
+		pilote16.setPrenom("Maria");
+		pilote16.setAge(30);
+		pilote16.setNationalite("Italienne");
+		pilote16.setCiv(Civilite.MME);
+		pilote16.setExperience(120);
+		pilote16.setEtat(false);
+		pilote16.setPrix(130000);
+		
+		Pilote pilote17 =new Pilote();
+		pilote17.setNom("JOHNSON");
+		pilote17.setPrenom("Clark");
+		pilote17.setAge(27);
+		pilote17.setNationalite("Anglaise");
+		pilote17.setCiv(Civilite.M);
+		pilote17.setExperience(150);
+		pilote17.setEtat(false);
+		pilote17.setPrix(180000);
+		
+		Pilote pilote18 =new Pilote();
+		pilote18.setNom("HUNTER");
+		pilote18.setPrenom("James");
+		pilote18.setAge(23);
+		pilote18.setNationalite("Anglaise");
+		pilote18.setCiv(Civilite.M);
+		pilote18.setExperience(124);
+		pilote18.setEtat(false);
+		pilote18.setPrix(170000);
+
+		Pilote pilote19 =new Pilote();
+		pilote19.setNom("CARLOS");
+		pilote19.setPrenom("Maya");
+		pilote19.setAge(24);
+		pilote19.setNationalite("Mexicaine");
+		pilote19.setCiv(Civilite.MME);
+		pilote19.setExperience(117);
+		pilote19.setEtat(false);
+		pilote19.setPrix(170000);
+		
+		Pilote pilote20 =new Pilote();
+		pilote20.setNom("SPEED");
+		pilote20.setPrenom("Johny");
+		pilote20.setAge(25);
+		pilote20.setNationalite("Anglaise");
+		pilote20.setCiv(Civilite.M);
+		pilote20.setExperience(128);
+		pilote20.setEtat(false);
+		pilote20.setPrix(180000);
+		
+		pilote1 = piloteRepo.save(pilote1);
+		pilote2 = piloteRepo.save(pilote2);
+		pilote3 = piloteRepo.save(pilote3);
+		pilote4 = piloteRepo.save(pilote4);
+		pilote5 = piloteRepo.save(pilote5);
+		pilote6 = piloteRepo.save(pilote6);
+		pilote7 = piloteRepo.save(pilote7);
+		pilote8 = piloteRepo.save(pilote8);
+		pilote9 = piloteRepo.save(pilote9);
+		pilote10 = piloteRepo.save(pilote10);
+		pilote11 = piloteRepo.save(pilote11);
+		pilote12 = piloteRepo.save(pilote12);
+		pilote13 = piloteRepo.save(pilote13);
+		pilote14 = piloteRepo.save(pilote14);
+		pilote15 = piloteRepo.save(pilote15);
+		pilote16 = piloteRepo.save(pilote16);
+		pilote17 = piloteRepo.save(pilote17);
+		pilote18 = piloteRepo.save(pilote18);
+		pilote19 = piloteRepo.save(pilote19);
+		pilote20 = piloteRepo.save(pilote20);
+		
+		//VOITURES DES ECURIES
 		
 		Voiture voiture1 = new Voiture();
 		voiture1.setMarque("BMW");
-		voiture1.setManiabilite(8);
-		voiture1.setPoids(1500);
+		voiture1.setManiabilite(6);
+		voiture1.setPoids(1700);
 		voiture1.setVitesse(50);
-		voiture1.setPrix(500000);
+		voiture1.setPrix(300000);
 		voiture1.setEtat(false);
-
-		voiture1 = voitureRepo.save(voiture1);
 
 		Voiture voiture2 = new Voiture();
 		voiture2.setMarque("MERCEDES");
 		voiture2.setManiabilite(8);
 		voiture2.setPoids(1500);
-		voiture2.setVitesse(50);
-		voiture2.setPrix(500000);
+		voiture2.setVitesse(55);
+		voiture2.setPrix(400000);
 		voiture2.setEtat(false);
-		
-		voiture2 = voitureRepo.save(voiture2);
-			
 		
 		Voiture voiture3 = new Voiture();
 		voiture3.setMarque("FERRARI");
 		voiture3.setManiabilite(8);
 		voiture3.setPoids(1500);
-		voiture3.setVitesse(50);
-		voiture3.setPrix(500000);
-		voiture3.setEtat(true);
-		
-		voiture3 = voitureRepo.save(voiture3);
+		voiture3.setVitesse(55);
+		voiture3.setPrix(420000);
+		voiture3.setEtat(false);
 		
 		Voiture voiture4= new Voiture();
 		voiture4.setMarque("RENAULT");
 		voiture4.setManiabilite(8);
-		voiture4.setPoids(1500);
-		voiture4.setVitesse(50);
-		voiture4.setPrix(500000);
-		voiture4.setEtat(true);
+		voiture4.setPoids(1520);
+		voiture4.setVitesse(47);
+		voiture4.setPrix(380000);
+		voiture4.setEtat(false);
+		
+		Voiture voiture5= new Voiture();
+		voiture4.setMarque("RENAULT");
+		voiture5.setManiabilite(9);
+		voiture5.setPoids(1520);
+		voiture5.setVitesse(53);
+		voiture5.setPrix(400000);
+		voiture5.setEtat(false);
 	
+		Voiture voiture6= new Voiture();
+		voiture6.setMarque("FERRARI");
+		voiture6.setManiabilite(12);
+		voiture6.setPoids(1300);
+		voiture6.setVitesse(60);
+		voiture6.setPrix(500000);
+		voiture6.setEtat(false);
+		
+		Voiture voiture7= new Voiture();
+		voiture7.setMarque("MERCEDES");
+		voiture7.setManiabilite(12);
+		voiture7.setPoids(1350);
+		voiture7.setVitesse(60);
+		voiture7.setPrix(500000);
+		voiture7.setEtat(false);
+		
+		Voiture voiture8= new Voiture();
+		voiture8.setMarque("HONDA");
+		voiture8.setManiabilite(14);
+		voiture8.setPoids(1350);
+		voiture8.setVitesse(64);
+		voiture8.setPrix(620000);
+		voiture8.setEtat(false);
+			
+		voiture1 = voitureRepo.save(voiture1);
+		voiture2 = voitureRepo.save(voiture2);
+		voiture3 = voitureRepo.save(voiture3);
 		voiture4 = voitureRepo.save(voiture4);
+		voiture5 = voitureRepo.save(voiture5);
+		voiture6 = voitureRepo.save(voiture6);
+		voiture7 = voitureRepo.save(voiture7);
+		voiture8 = voitureRepo.save(voiture8);
 		
 		//Infrastructures
 		
-		Infrastructure infrastructure1 = new Infrastructure();
-		infrastructure1.setExperience(0);
-		infrastructure1.setNom("infrastructure1");
-		infrastructure1.setNbingenieurs(5);
-		infrastructure1.setPitStop(15);
-		infrastructure1.setPrix(50000);
-		infrastructure1.setPrix(15);
-		infrastructure1.setEtat(true);
-		infrastructure1.setType("mecano");
+		Infrastructure infraPilote1 = new Infrastructure();
+		infraPilote1.setExperience(15);
+		infraPilote1.setNom("infraPilote1");
+		infraPilote1.setNbingenieurs(5);
+		infraPilote1.setPrix(100000);
+		infraPilote1.setEtat(false);
+		infraPilote1.setType(typeInfra.P);
 		
-		infrastructure1 = infrastructureRepo.save(infrastructure1);
+		Infrastructure infraVoiture1 = new Infrastructure();
+		infraVoiture1.setExperience(15);
+		infraVoiture1.setNom("infraVoiture1");
+		infraVoiture1.setNbingenieurs(5);
+		infraVoiture1.setPitStop(15);
+		infraVoiture1.setPrix(120000);
+		infraVoiture1.setEtat(false);
+		infraVoiture1.setType(typeInfra.V);
 		
-
-		Infrastructure infrastructure2 = new Infrastructure();
-		infrastructure2.setExperience(0);
-		infrastructure2.setNom("infrastructure2");
-		infrastructure2.setNbingenieurs(5);
-		infrastructure2.setPitStop(15);
-		infrastructure2.setPrix(50000);
-		infrastructure2.setPrix(15);
-		infrastructure2.setEtat(true);
-		infrastructure2.setType("mecano");
+		Infrastructure infraMarketing1 = new Infrastructure();
+		infraMarketing1.setExperience(15);
+		infraMarketing1.setNom("infraMarketing1");
+		infraMarketing1.setNbingenieurs(2);
+		infraMarketing1.setPrix(100000);
+		infraMarketing1.setEtat(false);
+		infraMarketing1.setType(typeInfra.M);
 		
-		infrastructure2 = infrastructureRepo.save(infrastructure2);
+		infraPilote1 = infrastructureRepo.save(infraPilote1);
+		infraVoiture1 = infrastructureRepo.save(infraVoiture1);
+		infraMarketing1 = infrastructureRepo.save(infraMarketing1);
 		
-
-		Infrastructure infrastructure3 = new Infrastructure();
-		infrastructure3.setExperience(0);
-		infrastructure3.setNom("infrastructure3");
-		infrastructure3.setNbingenieurs(5);
-		infrastructure3.setPitStop(15);
-		infrastructure3.setPrix(50000);
-		infrastructure3.setPrix(15);
-		infrastructure3.setEtat(false);
-		infrastructure3.setType("mecano");
-		
-		infrastructure3 = infrastructureRepo.save(infrastructure3);
-		
-
-		Infrastructure infrastructure4 = new Infrastructure();
-		infrastructure4.setExperience(0);
-		infrastructure4.setNom("infrastructure4");
-		infrastructure4.setNbingenieurs(5);
-		infrastructure4.setPitStop(15);
-		infrastructure4.setPrix(50000);
-		infrastructure4.setPrix(15);
-		infrastructure4.setEtat(false);
-		infrastructure4.setType("mecano");
-		
-		infrastructure4 = infrastructureRepo.save(infrastructure4);
-		
-		
-		
-		
-		//Ecuries
+		//ECURIES
 		
 		Ecurie ecurieJoueur1 = new Ecurie();
-		ecurieJoueur1.setNom("Ecurie1");
+		ecurieJoueur1.setNom("EcurieJoueur1");
 		ecurieJoueur1.setArgent(50000);
 		ecurieJoueur1.setExperience(500);
 		

@@ -15,7 +15,7 @@ public class Infrastructure {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String nom;
-	private String type;
+	private typeInfra type;
 	private int nbingenieurs;
 	private int pitStop;
 	private double experience;
@@ -28,7 +28,7 @@ public class Infrastructure {
 	@JoinColumn(name="inventaire")
 	private Inventaire inventaire;
 	
-	public Infrastructure(Long id, String nom, String type, int nbingenieurs, int pitStop, double experience,
+	public Infrastructure(Long id, String nom, typeInfra type, int nbingenieurs, int pitStop, double experience,
 			boolean etat, double prix, Ecurie ecurie, Inventaire inventaire) {
 		super();
 		this.id = id;
@@ -41,6 +41,19 @@ public class Infrastructure {
 		this.prix = prix;
 		this.ecurie = ecurie;
 		this.inventaire = inventaire;
+	}
+	
+	public Infrastructure(Long id, String nom, typeInfra type, int nbingenieurs, int pitStop, double experience,
+			boolean etat, double prix) {
+		super();
+		this.id = id;
+		this.nom = nom;
+		this.type = type;
+		this.nbingenieurs = nbingenieurs;
+		this.pitStop = pitStop;
+		this.experience = experience;
+		this.etat = etat;
+		this.prix = prix;
 	}
 
 	public Infrastructure() {
@@ -63,11 +76,11 @@ public class Infrastructure {
 		this.nom = nom;
 	}
 
-	public String getType() {
+	public typeInfra getType() {
 		return type;
 	}
 
-	public void setType(String type) {
+	public void setType(typeInfra type) {
 		this.type = type;
 	}
 
